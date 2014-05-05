@@ -5,10 +5,6 @@ class BlogController < ModelController
     page._new = store._posts.buffer #creates a buffer from model _posts
   end
 
-  def new
-    self.model = store._posts.buffer #creates a buffer from model _posts
-  end
-
   def edit
     store._posts.find(_id: params._id).then do |result|
       self.model = result[0].buffer # find currently returns a collection, we need the first one

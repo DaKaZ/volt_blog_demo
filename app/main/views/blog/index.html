@@ -12,7 +12,6 @@
        </p>
     {/}
     <p>
-        { page._new = store._posts.buffer }
         <h1>New Blog Post</h1>
         <form e-submit="ajax_save" role="form">
             <:fields:text value="{page._new._title}" label="Title:" />
