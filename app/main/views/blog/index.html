@@ -1,0 +1,22 @@
+<:Title>
+    My Blog
+
+<:Body>
+    <h1>My Blog</h1>
+
+    {#each store._posts as post}
+       <h2><a href="blog/{post._id}">{post._title}</a></h2>
+       <p>
+           <a href="blog/{post._id}/edit">edit</a>
+           <a e-click="store._posts.delete_at(index)">remove</a>
+       </p>
+    {/}
+    <p>
+        { page._new = store._posts.buffer }
+        <h1>New Blog Post</h1>
+        <form e-submit="ajax_save" role="form">
+            <:fields:text value="{page._new._title}" label="Title:" />
+            <:fields:textarea value="{page._new._body}" label="Post:"/>
+            <button>Save</button>
+        </form>
+    </p>
